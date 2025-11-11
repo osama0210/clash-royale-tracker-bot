@@ -41,7 +41,31 @@ class Compare(commands.Cog):
         else:
             result = f"🤝 {p1['name']} en {p2['name']} zijn even sterk!"
 
-        await ctx.reply(result)
+        embed = discord.Embed(
+            title=f"{p1['name']} 🆚 {p2['name']}",
+            description=result,
+            color=discord.Color.gold()
+        )
+
+        embed.add_field(
+            name="🏆 Trophies",
+            value=f"{p1['trophies']} vs {p2['trophies']}  |  * {abs(p1['trophies'] - p2['trophies'])}",
+            inline=False
+        )
+
+        embed.add_field(
+            name="🥇 Best Trophies",
+            value=f"{p1['best']} vs {p2['best']}  |  * {abs(p1['best'] - p2['best'])}",
+            inline=False
+        )
+
+        embed.add_field(
+            name="🔰 Level",
+            value=f"{p1['level']} vs {p2['level']}  |  * {abs(p1['level'] - p2['level'])}",
+            inline=False
+        )
+
+        await ctx.reply(embed=embed)
 
 
 async def setup(bot):
