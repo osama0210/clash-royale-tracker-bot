@@ -17,7 +17,7 @@ async def on_ready():
 async def main():
     async with bot:
         await bot.load_extension("commands.player")
-
+        await bot.load_extension("commands.clan")
         await bot.start(os.getenv("DISCORD_TOKEN"))
 
 if __name__ == "__main__":

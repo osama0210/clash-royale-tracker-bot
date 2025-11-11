@@ -1,4 +1,3 @@
-# commands/player.py
 import discord
 from discord.ext import commands
 from services.clash_api import get_player, norm_tag, ClashAPIError

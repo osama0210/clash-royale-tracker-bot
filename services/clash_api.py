@@ -28,9 +28,6 @@ async def get_player(tag: str):
     tag = norm_tag(tag)
     return await _get(f"/players/%23{tag}")
 
-# quick test:
-if __name__ == "__main__":
-    async def main():
-        p = await get_player("2P8QJ0")  # voorbeeldtag
-        print(p["name"], p.get("trophies"))
-    asyncio.run(main())
+async def get_clan(tag: str):
+    tag = norm_tag(tag)
+    return await _get(f"/clans/%23{tag}")
